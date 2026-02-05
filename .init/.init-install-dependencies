@@ -1,0 +1,4 @@
+{
+    "command": "cd db_visualizer && npm install",
+    "working_directory": "/home/kavia/workspace/code-generation/habit-tracker-and-motivation-platform-213808-213822/habithive_database"
+}
