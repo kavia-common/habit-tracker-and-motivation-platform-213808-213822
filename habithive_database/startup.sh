@@ -142,6 +142,13 @@ export POSTGRES_DB="${DB_NAME}"
 export POSTGRES_PORT="${DB_PORT}"
 EOF
 
+# Initialize HabitHive schema + minimal seed data (idempotent)
+if [ -f "init_habithive_db.sh" ]; then
+    echo "Running HabitHive schema/seed..."
+    chmod +x init_habithive_db.sh 2>/dev/null || true
+    ./init_habithive_db.sh || echo "⚠ HabitHive schema/seed step failed (continuing)"
+fi
+
 echo "PostgreSQL setup complete!"
 echo "Database: ${DB_NAME}"
 echo "User: ${DB_USER}"
